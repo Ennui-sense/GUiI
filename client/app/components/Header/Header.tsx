@@ -35,7 +35,7 @@ const Header = () => {
 
       const response = await fetch(url.href);
       const HeaderMenuItemData = await response.json();
-			
+
       setData({ HeaderMenuItemData });
       setLoading(false);
     }
@@ -54,7 +54,7 @@ const Header = () => {
         <div className="header__actions">
           <nav className="header__menu">
             <ul className="header__menu-list">
-              {data.HeaderMenuItemData.data.map((item) => (
+              {data.HeaderMenuItemData.data?.map((item) => (
                 <li key={item.id} className="header__menu-item">
                   <a href="" className="header__menu-link">
                     {item.content}
