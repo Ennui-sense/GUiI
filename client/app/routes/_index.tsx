@@ -1,5 +1,6 @@
 import Page from "~/layouts/Page/Page";
 import Hero from "~/sections/Hero/Hero";
+import News from "~/sections/News/News";
 
 export function meta() {
   return [
@@ -12,7 +13,7 @@ export default function IndexRoute() {
   return (
     <Page>
       <Hero />
-			1223124
+      <News />
     </Page>
   );
 }

@@ -9,7 +9,7 @@
   font-weight: 600;
   font-size: rem(14);
   line-height: 1.14;
-	border-right: var(--border-radius);
+	border-radius: var(--border-radius);
 	transition: 0.3s cubic-bezier(.07,.82,.57,1.42);
 	
 	@include hover(false) {

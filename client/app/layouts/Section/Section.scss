@@ -1,0 +1,22 @@
+@use "~/styles/helpers" as *;
+
+.section {
+  padding-block: rem(112);
+
+  &--gray {
+    background-color: var(--color-gray);
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: rem(48);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(16);
+  }
+}

@@ -1,0 +1,16 @@
+@use "~/styles/helpers" as *;
+
+.link-with-arrow {
+	display: flex;
+	column-gap: rem(2);
+  font-weight: 600;
+	color: var(--color-gray-dark);
+
+	& svg * {
+		fill: currentColor
+	}
+
+	@include hover {
+		color: var(--color-gray);
+	}
+}
