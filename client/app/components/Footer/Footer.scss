@@ -1,0 +1,62 @@
+@use "~/styles/helpers/" as *;
+
+.footer {
+  background-color: var(--color-dark);
+  color: var(--color-light);
+
+  &__top {
+    padding-block: rem(64);
+
+    &-inner {
+      display: flex;
+      flex-direction: column;
+      row-gap: rem(40);
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+  }
+
+  &__address {
+    &-title {
+      font-weight: 600;
+    }
+  }
+
+  &__actions {
+    display: grid;
+    grid-template-columns: repeat(3, rem(290));
+    gap: rem(40) rem(32);
+  }
+
+  &__bottom {
+    padding-block: rem(24);
+    position: relative;
+
+    &-inner {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: rem(1);
+      background-color: var(--color-gray-dark-alt);
+      top: 0;
+    }
+  }
+
+  &__copyright,
+  &__authors {
+    font-weight: 600;
+    font-size: rem(12);
+    line-height: 1.33;
+    letter-spacing: 0.01em;
+    color: var(--color-gray-dark);
+  }
+}

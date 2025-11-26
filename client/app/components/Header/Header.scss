@@ -26,7 +26,26 @@
 		}
 
 		&-link {
-			color: var(--color-light)
+			color: var(--color-light);
+			position: relative;
+
+			&::after {
+				content: "";
+				width: 0;
+				height: rem(1);
+				position: absolute;
+				bottom: 0;
+				left: 50%;
+				transform: translateX(-50%);
+				background-color: currentColor;
+				transition-duration: var(--transition-duration);
+			}
+
+			@include hover(false) {
+				&::after {
+					width: 100%;
+				}
+			}
 		}
 	}
 }

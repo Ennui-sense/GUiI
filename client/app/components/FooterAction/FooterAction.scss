@@ -1,0 +1,11 @@
+@use "~/styles/helpers/" as *;
+
+.footer-action {
+  display: flex;
+  flex-direction: column;
+  row-gap: rem(12);
+
+  &__title {
+    font-weight: 600;
+  }
+}
