@@ -1,0 +1,10 @@
+@use "~/styles/helpers" as *;
+
+
+.partners {
+	&__list {
+		display: flex;
+		align-items: center;
+		column-gap: rem(16);
+	}
+}

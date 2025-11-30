@@ -4,6 +4,7 @@ import News from "~/sections/News/News";
 import Directions from "~/sections/Directions/Directions";
 import Workers from "~/sections/Workers/Workers";
 import Stats from "~/sections/Stats/Stats";
+import Partners from "~/sections/Partners/Partners";
 
 export function meta() {
   return [
@@ -20,6 +21,7 @@ export default function IndexRoute() {
       <Directions />
       <Workers />
       <Stats />
+      <Partners />
     </Page>
   );
 }

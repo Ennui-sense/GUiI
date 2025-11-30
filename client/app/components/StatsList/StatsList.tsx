@@ -1,5 +1,3 @@
-import "./StatsList.scss";
-
 import StatsCard from "../StatsCard/StatsCard";
 
 import { StatsCardData } from "~/data/StatsCardData";
