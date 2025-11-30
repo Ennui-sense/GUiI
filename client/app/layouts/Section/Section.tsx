@@ -14,6 +14,7 @@ interface SectionProps {
   buttonText?: string;
   buttonVariant?: "light" | "gray" | "dark";
   sectionVariant?: "gray" | "dark";
+  isTitleVisible?: boolean;
 }
 
 const Section = ({
@@ -24,6 +25,7 @@ const Section = ({
   buttonText,
   buttonVariant = "light",
   sectionVariant,
+  isTitleVisible = true,
 }: SectionProps) => {
   return (
     <section
@@ -34,7 +36,14 @@ const Section = ({
     >
       <div className="section__header container">
         <div className="section__content">
-          <h2 className="section__title">{title}</h2>
+          <h2
+            className={clsx(
+              "section__title",
+              !isTitleVisible && "visually-hidden"
+            )}
+          >
+            {title}
+          </h2>
           {description && <p className="section__description">{description}</p>}
         </div>
 

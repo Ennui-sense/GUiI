@@ -4,7 +4,7 @@ interface INewslistData {
   publishedAt: string;
   text: string;
 }
-import gkmem from "./../assets/img/news/1.jpg"
+
 export const NewsListData: INewslistData[] = [
   {
     imageSrc: "/app/assets/img/news/1.jpg",

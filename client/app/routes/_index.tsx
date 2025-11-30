@@ -3,6 +3,7 @@ import Hero from "~/sections/Hero/Hero";
 import News from "~/sections/News/News";
 import Directions from "~/sections/Directions/Directions";
 import Workers from "~/sections/Workers/Workers";
+import Stats from "~/sections/Stats/Stats";
 
 export function meta() {
   return [
@@ -18,6 +19,7 @@ export default function IndexRoute() {
       <News />
       <Directions />
       <Workers />
+      <Stats />
     </Page>
   );
 }

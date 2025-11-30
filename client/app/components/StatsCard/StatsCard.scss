@@ -1,0 +1,22 @@
+@use "~/styles/helpers" as *;
+
+.stats-card {
+	padding-left: rem(32);
+	position: relative;
+
+	&__title {
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(8);
+	}
+
+	&::after {
+		content: "";
+		width: rem(1);
+		height: 100%;
+		background-color: var(--color-dark);
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+}
