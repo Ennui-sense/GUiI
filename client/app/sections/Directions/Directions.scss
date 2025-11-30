@@ -11,6 +11,8 @@
   }
 
   &__item {
+		width: 100%;
+
     @for $i from 1 through 3 {
       &:nth-child(#{$i}) {
         grid-area: direction-#{$i};

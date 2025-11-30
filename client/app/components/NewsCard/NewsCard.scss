@@ -4,7 +4,6 @@
   background-color: var(--color-light);
   border-radius: var(--border-radius-large);
 	padding: rem(8);
-
   @include hover {
     .news-card__image {
       scale: 1.2;
@@ -39,5 +38,11 @@
 
   &__text {
     margin-bottom: rem(24);
+		height: rem(144);
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-line-clamp: 6;
+		-webkit-box-orient: vertical;
   }
 }

@@ -1,0 +1,31 @@
+@use "~/styles/helpers" as *;
+
+.workers-card {
+  background-color: var(--color-gray-alt);
+  padding: rem(32);
+  display: flex;
+  column-gap: rem(24);
+  border-radius: var(--border-radius-large);
+	align-items: start;
+
+  &__image {
+    object-fit: cover;
+    border-radius: var(--border-radius-small);
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(12);
+  }
+
+  &__name {
+    font-weight: 600;
+  }
+
+  &__profession {
+    font-size: rem(14);
+    line-height: 1.43;
+    letter-spacing: 0em;
+  }
+}

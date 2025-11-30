@@ -3,9 +3,19 @@
 .section {
   padding-block: rem(112);
 
+	// &:not(.section--gray):nth-child(2n) {
+	// 	color: red;
+	// }
+	
   &--gray {
     background-color: var(--color-gray);
   }
+
+	&:has(.directions) {
+		.section__title {
+			max-width: rem(350);
+		}
+	}
 
   &__header {
     display: flex;
@@ -19,4 +29,8 @@
     flex-direction: column;
     row-gap: rem(16);
   }
+
+	&__description {
+		max-width: rem(610);
+	}
 }
