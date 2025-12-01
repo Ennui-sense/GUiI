@@ -1,0 +1,56 @@
+@use "~/styles/helpers" as *;
+
+.professions {
+  &__inner {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: rem(16);
+  }
+
+  &__active {
+    background-color: var(--color-dark);
+    border-radius: var(--border-radius-large);
+    color: var(--color-light);
+    padding: rem(72) rem(54) 0;
+    position: relative;
+
+    &-title {
+      text-align: center;
+    }
+
+    & svg {
+      @include square(rem(150));
+
+      position: absolute;
+      bottom: rem(-10);
+      rotate: -15deg;
+      left: 50%;
+      transform: translateX(-50%);
+
+      & * {
+        fill: currentColor;
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(16);
+  }
+
+  &__item {
+    padding: rem(20) rem(24);
+    background-color: var(--color-gray-alt);
+    border-radius: var(--border-radius-large);
+
+    &-button {
+      @include button-reset;
+
+      width: 100%;
+      display: flex;
+			align-items: start;
+      column-gap: rem(12);
+    }
+  }
+}

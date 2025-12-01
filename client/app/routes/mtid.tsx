@@ -5,6 +5,7 @@ import Page from "~/layouts/Page/Page";
 import { DirectionsPagesData } from "~/data/DirectionsPagesData";
 
 import HeroDirection from "~/sections/HeroDirection/HeroDirection";
+import Professions from "~/sections/Professions/Professions";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -18,15 +19,18 @@ export default function MtidRoute() {
     (direction) => direction.id === "mtid"
   );
 
-	if (!filteredData) {
-		return <Page>
-			<p>Ой... Где-то косяк, такое направление не найдено.</p>
-		</Page>
-	}
+  if (!filteredData) {
+    return (
+      <Page>
+        <p>Ой... Где-то косяк, такое направление не найдено.</p>
+      </Page>
+    );
+  }
 
   return (
     <Page>
       <HeroDirection data={filteredData} />
+      <Professions />
     </Page>
   );
 }
