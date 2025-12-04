@@ -4,11 +4,13 @@ import { useState, useEffect } from "react";
 
 import Logo from "../Logo/Logo";
 import Button from "../Button/Button";
+import HeaderMenu from "../HeaderMenu/HeaderMenu";
 
-interface HeaderMenuItem {
+export interface HeaderMenuItem {
   id: number;
   documentId: string;
   content: string;
+	href: string;
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
@@ -18,7 +20,7 @@ interface HeaderMenuItemResponse {
   data: HeaderMenuItem[];
 }
 
-interface LoaderData {
+export interface LoaderData {
   HeaderMenuItemData: HeaderMenuItemResponse;
 }
 
@@ -35,7 +37,7 @@ const Header = () => {
 
       const response = await fetch(url.href);
       const HeaderMenuItemData = await response.json();
-			
+
       setData({ HeaderMenuItemData });
       setLoading(false);
     }
@@ -52,19 +54,11 @@ const Header = () => {
         <Logo className="header__logo" />
 
         <div className="header__actions">
-          <nav className="header__menu">
-            <ul className="header__menu-list">
-              {data.HeaderMenuItemData.data.map((item) => (
-                <li key={item.id} className="header__menu-item">
-                  <a href="" className="header__menu-link body-s-medium">
-                    {item.content}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <HeaderMenu data={data}/>
 
-					<Button className="header__button" variant="light" isSmall>Поступить</Button>
+          <Button className="header__button" variant="light" isSmall>
+            Поступить
+          </Button>
         </div>
       </div>
     </header>

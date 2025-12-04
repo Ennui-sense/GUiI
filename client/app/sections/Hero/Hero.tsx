@@ -2,6 +2,7 @@ import "./Hero.scss";
 
 import { useState, useEffect } from "react";
 import HeroPattern from "~/assets/img/pattern.png";
+import PlanetPattern from "/img/planet.mp4";
 
 interface Hero {
   id: number;
@@ -34,7 +35,7 @@ const Hero = () => {
 
       const response = await fetch(url.href);
       const HeroData = await response.json();
-			console.log(HeroData)
+      console.log(HeroData);
       setData({ HeroData });
       setLoading(false);
     }
@@ -50,17 +51,32 @@ const Hero = () => {
       <div className="hero__inner container">
         <div className="hero__body">
           <h1 className="hero__title">{data.HeroData.data.title}</h1>
-          <p className="hero__description body-l-regular">{data.HeroData.data.description}</p>
+          <p className="hero__description body-l-regular">
+            {data.HeroData.data.description}
+          </p>
         </div>
 
-        <img
+        <video
+          width={458}
+          height={458}
+          className="hero__video"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source src={PlanetPattern} type="video/mp4" />
+					Увы, ваш браузер не поддерживает тег video
+        </video>
+
+        {/* <img
           src={HeroPattern}
           alt=""
           className="hero__pattern"
           width={1440}
           height={215}
           loading="lazy"
-        />
+        /> */}
       </div>
     </section>
   );

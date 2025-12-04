@@ -1,51 +1,96 @@
 @use "~/styles/helpers/" as *;
 
 .header {
-	background-color: var(--color-dark);
-	padding-block: rem(16);
-	position: sticky;
-	top: 0;
-	z-index: 900;
+  background-color: var(--color-dark);
+  padding-block: rem(16);
+  position: sticky;
+  top: 0;
+  z-index: 900;
 
-	&__inner {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-	&__actions {
-		display: flex;
-		column-gap: rem(32);
-		align-items: center;
-	}
+  &__actions {
+    display: flex;
+    column-gap: rem(32);
+    align-items: center;
+  }
 
-	&__menu {
-		&-list {
-			display: flex;
-			column-gap: rem(32);
-		}
+  &__menu {
+    &-list {
+      display: flex;
+      column-gap: rem(32);
+    }
 
-		&-link {
-			color: var(--color-light);
-			position: relative;
+    &-item {
+      position: relative;
+    }
 
-			&::after {
-				content: "";
-				width: 0;
-				height: rem(1);
-				position: absolute;
-				bottom: 0;
-				left: 50%;
-				transform: translateX(-50%);
-				background-color: currentColor;
-				transition-duration: var(--transition-duration);
-			}
+    &-link,
+    &-button {
+      color: var(--color-light);
+      position: relative;
+    }
 
-			@include hover(false) {
-				&::after {
-					width: 100%;
-				}
-			}
-		}
-	}
+    &-link {
+      &::after {
+        content: "";
+        width: 0;
+        height: rem(1);
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: currentColor;
+        transition-duration: var(--transition-duration);
+      }
+
+      @include hover(false) {
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+
+    &-button {
+      @include button-reset;
+
+      display: flex;
+      align-items: center;
+      column-gap: rem(4);
+      color: var(--color-light);
+
+      & svg {
+        rotate: 90deg;
+
+        & * {
+          fill: currentColor;
+        }
+      }
+
+      @include hover {
+        color: var(--color-gray-dark);
+      }
+
+      &.active {
+        svg {
+          rotate: -90deg;
+        }
+      }
+    }
+  }
+
+  &__modal {
+    color: red;
+    position: absolute;
+    width: rem(680);
+    height: rem(312);
+    bottom: rem(-324);
+    transform: translateX(-50%);
+    left: 50%;
+    background-color: yellow;
+  }
 }

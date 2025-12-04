@@ -5,6 +5,7 @@
   color: var(--color-light);
   position: relative;
   display: flex;
+	overflow: hidden;
 
   &__inner {
     display: flex;
@@ -27,4 +28,12 @@
     width: 100%;
     object-fit: cover;
   }
+
+	&__video {
+		position: absolute;
+		bottom: rem(-266);
+		left: 50%;
+		transform: translateX(-50%);
+
+	}
 }
