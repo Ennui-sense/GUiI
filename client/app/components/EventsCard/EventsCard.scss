@@ -8,7 +8,7 @@
 
   @include hover(false) {
     .events-card__image {
-      scale: 1.2;
+      scale: 1.10;
     }
   }
 
@@ -41,6 +41,7 @@
   &__author,
   &__location {
     z-index: 100;
+    pointer-events: none;
   }
 
   &__title {

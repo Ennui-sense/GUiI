@@ -8,7 +8,7 @@
 
   @include hover {
     .news-card__image {
-      scale: 1.2;
+      scale: 1.1;
     }
   }
 
@@ -33,6 +33,7 @@
 		position: relative;
     color: var(--color-gray-dark);
     margin-bottom: rem(8);
+    pointer-events: none;
 		z-index: 100;
   }
 
@@ -49,6 +50,7 @@
 		display: -webkit-box;
 		-webkit-line-clamp: 6;
 		-webkit-box-orient: vertical;
+    pointer-events: none;
   }
 
 	&__link {

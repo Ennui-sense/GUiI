@@ -1,23 +1,7 @@
 @font-face {
 	font-family: "Montserrat";
-	src: url("/fonts/Montserrat-Medium.woff2") format("woff2");
-	font-weight: 500;
-	font-display: swap;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: "Montserrat";
-	src: url("/fonts/Montserrat-SemiBold.woff2") format("woff2");
-	font-weight: 600;
-	font-display: swap;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: "Montserrat";
-	src: url("/fonts/Montserrat-ExtraBold.woff2") format("woff2");
-	font-weight: 700;
+	src: url("/fonts/Montserrat.woff2") format("woff2-variations");
+	font-weight: 500 700;
 	font-display: swap;
 	font-style: normal;
 }

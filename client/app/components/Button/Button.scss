@@ -14,11 +14,11 @@
 
   &:not(.button--disable-hover) {
     @include hover(false) {
-      scale: 1.15;
+      scale: 1.05;
     }
 
     &:active {
-      scale: 0.95;
+      scale: 0.98;
     }
   }
 

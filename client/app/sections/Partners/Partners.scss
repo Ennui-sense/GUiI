@@ -18,11 +18,12 @@
     @include flex-center(true);
     width: rem(182);
     height: rem(56);
+    padding: rem(8) rem(24);
     flex-shrink: 0;
   }
 
 	&__image {
-		width: 75%;
+		height: 100%;
 	}
 }
 
