@@ -1,22 +1,23 @@
 import type { Route } from "./+types/directions.$direction";
+
 import qs from "qs";
+
 import Page from "~/layouts/Page/Page";
+
 import HeroDirection from "~/sections/HeroDirection/HeroDirection";
 import Professions from "~/sections/Professions/Professions";
+import Dormitory from "~/sections/Dormitory/Dormitory";
+import MilitaryDepartment from "~/sections/MilitaryDepartment/MilitaryDepartment";
 
 export interface ProfessionsDirectionBlockItem {
   title: string;
-	image: {url: string}
-	id: number
+  image: { url: string };
+  id: number;
 }
 
 interface ProfessionsDirectionBlock {
   __component: string;
   professions: ProfessionsDirectionBlockItem[];
-}
-
-interface HeroDirectionAccentColor {
-  accentColor: string;
 }
 
 export interface HeroDirectionBlock {
@@ -31,7 +32,7 @@ export interface HeroDirectionBlock {
   price: number;
   availabilityDormitory: boolean;
   availabilityMilitaryDepartment: boolean;
-  direction_accent_color: HeroDirectionAccentColor;
+  direction_accent_color: { accentColor: string };
 }
 
 interface DirectionData {
@@ -60,10 +61,9 @@ export async function loader({ params }: Route.LoaderArgs) {
           "direction.professions": {
             populate: {
               professions: {
-                populate: "image", // или '*' если нужно всё
+                populate: "*",
               },
             },
-            // populate: "*",
           },
         },
       },
@@ -116,12 +116,12 @@ export default function DirectionRoute({
       block.__component === "direction.professions"
   );
 
-  // console.log(professionsBlock);
-
   return (
     <Page>
       <HeroDirection data={heroBlock}></HeroDirection>
-      <Professions data={professionsBlock.professions}/>
+      <Professions data={professionsBlock.professions} />
+      <Dormitory />
+      <MilitaryDepartment />
 
       {/* {professionsBlock && (
         <div className="mt-10">

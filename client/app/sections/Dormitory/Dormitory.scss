@@ -1,0 +1,7 @@
+@use "~/styles/helpers" as *;
+
+.dormitory {
+	&__image {
+		border-radius: var(--border-radius-large);
+	}
+}

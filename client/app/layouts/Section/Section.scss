@@ -34,6 +34,28 @@
     }
   }
 
+	&__inner {
+		&--row,
+		&--row-reverse {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			column-gap: rem(20);
+
+			.section__header {
+				flex-direction: column;
+				justify-content: start;
+				align-items: start;
+				row-gap: rem(24);
+				max-width: rem(480);
+			}
+		}
+
+		&--row-reverse {
+			flex-direction: row-reverse;
+		}
+	}
+
   &__header {
     display: flex;
     justify-content: space-between;

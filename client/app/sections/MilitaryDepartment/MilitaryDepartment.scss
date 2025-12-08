@@ -1,0 +1,7 @@
+@use "~/styles/helpers" as *;
+
+.military-department {
+	&__image {
+		border-radius: var(--border-radius-large);
+	}
+}

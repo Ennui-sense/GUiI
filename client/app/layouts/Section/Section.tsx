@@ -16,6 +16,8 @@ interface SectionProps {
   sectionVariant?: "gray" | "dark";
   isTitleVisible?: boolean;
   isHeaderCenter?: boolean;
+  isSectionInnerRow?: boolean;
+  isSectionInnerRowReverse?: boolean;
 }
 
 const Section = ({
@@ -28,6 +30,8 @@ const Section = ({
   sectionVariant,
   isTitleVisible = true,
   isHeaderCenter = false,
+  isSectionInnerRow = false,
+  isSectionInnerRowReverse = false,
 }: SectionProps) => {
   return (
     <section
@@ -37,31 +41,40 @@ const Section = ({
       )}
     >
       <div
-        className={clsx(
-          "section__header container",
-          isHeaderCenter && "section__header--center"
-        )}
+        className={clsx("section__inner container", {
+          "section__inner--row": isSectionInnerRow,
+          "section__inner--row-reverse": isSectionInnerRowReverse,
+        })}
       >
-        <div className="section__content">
-          <h2
-            className={clsx(
-              "section__title",
-              !isTitleVisible && "visually-hidden"
+        <div
+          className={clsx(
+            "section__header",
+            isHeaderCenter && "section__header--center"
+          )}
+        >
+          <div className="section__content">
+            <h2
+              className={clsx(
+                "section__title",
+                !isTitleVisible && "visually-hidden"
+              )}
+            >
+              {title}
+            </h2>
+            {description && (
+              <p className="section__description">{description}</p>
             )}
-          >
-            {title}
-          </h2>
-          {description && <p className="section__description">{description}</p>}
+          </div>
+
+          {buttonText && (
+            <Button className="section__button" variant={buttonVariant}>
+              {buttonText}
+            </Button>
+          )}
         </div>
 
-        {buttonText && (
-          <Button className="section__button" variant={buttonVariant}>
-            {buttonText}
-          </Button>
-        )}
+        <div className={clsx("section__body", sectionName)}>{children}</div>
       </div>
-
-      <div className={clsx("section__body", sectionName)}>{children}</div>
     </section>
   );
 };
