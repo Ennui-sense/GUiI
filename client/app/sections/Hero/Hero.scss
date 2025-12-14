@@ -9,7 +9,7 @@
 
   &__inner {
     display: flex;
-    margin-block: rem(75) rem(250);
+    margin-block: rem(150) rem(250);
   }
 
   &__body {
@@ -34,6 +34,5 @@
 		bottom: rem(-266);
 		left: 50%;
 		transform: translateX(-50%);
-
 	}
 }

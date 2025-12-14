@@ -16,7 +16,7 @@ const News = ({group}: NewsProps) => {
       buttonText="Смотреть все"
       sectionVariant="gray"
     >
-      <div className="news__inner container">
+      <div className="news__inner">
         <NewsList group={group}/>
       </div>
     </Section>

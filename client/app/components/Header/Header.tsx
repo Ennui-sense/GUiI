@@ -56,12 +56,12 @@ const Header = () => {
   return (
     <header className={clsx("header", {"header--transparent": !navigationState.activeTab})}>
       <div className="header__inner container">
-        <Logo className="header__logo" />
+        <Logo className="header__logo" variant={!navigationState.activeTab ? "light" : "dark"}/>
 
         <div className="header__actions">
           <HeaderMenu data={data} />
 
-          <Button className="header__button" variant="light" isSmall>
+          <Button className="header__button" variant={!navigationState.activeTab ? "light" : "dark"} isSmall>
             Поступить
           </Button>
         </div>

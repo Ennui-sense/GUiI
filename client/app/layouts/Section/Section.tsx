@@ -41,9 +41,10 @@ const Section = ({
       )}
     >
       <div
-        className={clsx("section__inner container", {
+        className={clsx("section__inner", {
           "section__inner--row": isSectionInnerRow,
           "section__inner--row-reverse": isSectionInnerRowReverse,
+					"container": !isHeaderCenter
         })}
       >
         <div

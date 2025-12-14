@@ -68,15 +68,6 @@ const Hero = () => {
           <source src={PlanetPattern} type="video/mp4" />
 					Увы, ваш браузер не поддерживает тег video
         </video>
-
-        {/* <img
-          src={HeroPattern}
-          alt=""
-          className="hero__pattern"
-          width={1440}
-          height={215}
-          loading="lazy"
-        /> */}
       </div>
     </section>
   );

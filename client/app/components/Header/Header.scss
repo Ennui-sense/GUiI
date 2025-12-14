@@ -4,13 +4,27 @@
   background-color: var(--color-dark);
   padding-block: rem(16);
   position: fixed;
-  top: 0;
   z-index: 900;
+  width: 100%;
+  background-color: var(--color-light);
+  box-shadow: var(--box-shadow);
+  color: var(--color-dark);
 
-	&--transparent {
-		background-color: transparent;
-		position: absolute;
-	}
+  &:not(.header--transparent) {
+  	animation-name: animate-top;
+  	animation-duration: var(--transition-duration);
+  }
+
+  &--transparent {
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+
+    .header__menu-link,
+    .header__menu-button {
+      color: var(--color-light);
+    }
+  }
 
   &__inner {
     display: flex;
@@ -36,7 +50,7 @@
 
     &-link,
     &-button {
-      color: var(--color-light);
+      color: var(--color-dark);
       position: relative;
     }
 
@@ -66,7 +80,6 @@
       display: flex;
       align-items: center;
       column-gap: rem(4);
-      color: var(--color-light);
 
       & svg {
         rotate: 90deg;
@@ -87,13 +100,14 @@
       }
     }
   }
+}
 
-  // &__modal {
-  //   position: absolute;
-  //   width: rem(680);
-  //   height: rem(312);
-  //   bottom: rem(-324);
-  //   transform: translateX(-50%);
-  //   left: 50%;
-  // }
+@keyframes animate-top {
+  from {
+    top: -100px;
+  }
+
+  to {
+    top: 0;
+  }
 }

@@ -113,21 +113,6 @@ export default function DirectionRoute({
         <MilitaryDepartment />
       )}
       <News group={currentDirection.shortName} />
-
-      {/* {professionsBlock && (
-        <div className="mt-10">
-          <h3 className="text-2xl font-semibold mb-4">Профессии направления</h3>
-
-          <ul className="list-disc pl-5 space-y-2">
-            {professionsBlock.professions?.map((prof: any) => (
-              <li key={prof.id} className="text-lg">
-                {prof.title}
-                <img src={`http://localhost:1337${prof.image.url}`} alt="" />
-              </li>
-            ))}
-          </ul>
-        </div>
-      )} */}
     </Page>
   );
 }

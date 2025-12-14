@@ -30,7 +30,7 @@ const Professions = ({data}: ProfessionsProps) => {
       title="Кем станете после выпуска"
       description="Программа развивает те способности, которые помогут стать востребованным специалистом "
     >
-      <div className="professions__inner container">
+      <div className="professions__inner">
         <div className="professions__active">
           <h3 className="professions__active-title">{activeCard?.title}</h3>
 

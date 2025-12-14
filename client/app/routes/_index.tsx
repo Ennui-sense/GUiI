@@ -7,6 +7,10 @@ import Stats from "~/sections/Stats/Stats";
 import Partners from "~/sections/Partners/Partners";
 import Events from "~/sections/Events/Events";
 
+import { useOnInView } from "react-intersection-observer";
+
+import { useNavigation } from "~/contexts/NavigationContext.jsx";
+
 export function meta() {
   return [
     { title: "Кафедра ГУиИ | Главная" },
@@ -15,10 +19,22 @@ export function meta() {
 }
 
 export default function IndexRoute() {
+  const { setNavigationState } = useNavigation();
+
+  const inViewRef = useOnInView((inView, entry) => {
+    if (inView) {
+      setNavigationState({ activeTab: false });
+    } else {
+      setNavigationState({ activeTab: true });
+    }
+  });
+
   return (
     <Page>
-      <Hero />
-      <News/>
+      <div ref={inViewRef}>
+        <Hero />
+      </div>
+      <News />
       <Directions />
       <Workers />
       <Stats />

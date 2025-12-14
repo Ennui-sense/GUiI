@@ -34,7 +34,7 @@ const Events = () => {
       description="В Пермском Политехе студенты занимаются спортом, творческими направлениями и социальными проектами, открывая возможности для саморазвития и ярких впечатлений"
       sectionVariant="gray"
     >
-      <div className="events__inner container">
+      <div className="events__inner">
         <EventsFilters
           onClick={handleFilterClick}
           activeCategory={activeCategory}

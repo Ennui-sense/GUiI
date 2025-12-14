@@ -10,7 +10,7 @@ const Stats = () => {
       title="Статистика нашей кафедры"
       isTitleVisible={false}
     >
-      <div className="stats__inner container">
+      <div className="stats__inner">
         <StatsList />
       </div>
     </Section>

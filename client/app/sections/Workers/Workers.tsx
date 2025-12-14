@@ -12,7 +12,7 @@ const Workers = () => {
       buttonText="Смотреть всех"
       buttonVariant="gray"
     >
-      <div className="workers__inner container">
+      <div className="workers__inner">
         <WorkersList />
       </div>
     </Section>
