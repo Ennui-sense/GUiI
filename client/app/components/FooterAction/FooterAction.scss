@@ -8,4 +8,14 @@
   &__title {
     font-weight: 600;
   }
+
+	&__link {
+		@include hover {
+			opacity: 0.6;
+		}
+
+		&:active {
+			opacity: 0.3;
+		}
+	}
 }

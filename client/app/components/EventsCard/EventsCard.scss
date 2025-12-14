@@ -27,6 +27,7 @@
 
   &__image {
     border-radius: inherit;
+		height: 100%;
     width: 100%;
     transition-duration: var(--transition-duration);
   }

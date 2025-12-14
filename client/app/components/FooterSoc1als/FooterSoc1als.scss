@@ -3,4 +3,23 @@
 .footer-soc1als {
   display: flex;
   column-gap: rem(24);
+  transition-duration: 2s;
+
+  &__link {
+    & svg * {
+      transition: opacity var(--transition-duration);
+    }
+
+    @include hover {
+      & svg * {
+        opacity: 0.6;
+      }
+    }
+
+    &:active {
+      & svg * {
+        opacity: 0.3;
+      }
+    }
+  }
 }
