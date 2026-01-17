@@ -7,10 +7,10 @@
   z-index: 900;
   width: 100%;
   background-color: var(--color-light);
-  box-shadow: var(--box-shadow);
   color: var(--color-dark);
-
+	
   &:not(.header--transparent) {
+		box-shadow: var(--box-shadow);
   	animation-name: animate-top;
   	animation-duration: var(--transition-duration);
   }

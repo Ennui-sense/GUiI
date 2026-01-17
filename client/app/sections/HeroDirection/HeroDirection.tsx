@@ -65,7 +65,7 @@ const HeroDirection = ({ data }: HeroDirectionsProps) => {
       className="hero-direction"
       style={{ "--color-accent": accentColor.accentColor } as React.CSSProperties}
     >
-      <div className="hero-direction__inner">
+      <div className="hero-direction__inner container">
         <div className="hero-direction__info">
           <p className="hero-direction__code">{code}</p>
           <h1 className="hero-direction__title">{fullName}</h1>

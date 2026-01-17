@@ -1,44 +1,36 @@
 import "./Professions.scss";
 
 import Section from "~/layouts/Section/Section";
-
-import { useState } from "react";
-
-import type { ProfessionsDirectionBlockItem } from "~/routes/directions.$direction";
-
 import ProfessionsList from "~/components/ProfessionsList/ProfessionsList";
 
+import Icon from "~/components/Icon/Icon";
+
 interface ProfessionsProps {
-	data: ProfessionsDirectionBlockItem[]
+  title: string;
+  description: string;
+  professions: { title: string; icon: string, id: number	 }[];
 }
 
-const Professions = ({data}: ProfessionsProps) => {
-	console.log(data);
-	
-  const [activeCardId, setActiveCardId] = useState<number>(data[0].id);
+const Professions = ({ title, description, professions }: ProfessionsProps) => {
+  if (!professions) return <p>Профессий нету у него еще</p>;
 
-  const handleClick = (id: number) => {
-    setActiveCardId(id);
-  };
+  const accentProfession = professions[0]
 
-  const activeCard = data.find((card) => card.id === activeCardId);
-	const filteredCards = data.filter((card) => card !== activeCard)
+	const filteredProfessions = professions.filter((item) => item !== accentProfession)
 
   return (
-    <Section
-      sectionName="professions"
-      title="Кем станете после выпуска"
-      description="Программа развивает те способности, которые помогут стать востребованным специалистом "
-    >
+    <Section sectionName="professions" title={title} description={description}>
       <div className="professions__inner">
-        <div className="professions__active">
-          <h3 className="professions__active-title">{activeCard?.title}</h3>
-
-					<img src={`http://localhost:1337${activeCard?.image.url}`} alt="" className="professions__active-image" />
-          {/* <Icon></Icon> */}
+        <div className="professions__accent">
+          <h3 className="professions__accent-title">
+            {accentProfession?.title}
+          </h3>
+          {accentProfession?.icon && (
+            <Icon icon={accentProfession?.icon} className="professions__accent-icon"></Icon>
+          )}
         </div>
 
-        <ProfessionsList data={filteredCards} onClick={handleClick}/>
+        <ProfessionsList filteredProfessions={filteredProfessions}/>
       </div>
     </Section>
   );

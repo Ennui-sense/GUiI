@@ -2,17 +2,29 @@ import "./DirectionsCard.scss";
 
 import LinkWithArrow from "../LinkWithArrow/LinkWithArrow";
 
-import type { IDirectionsCard } from "~/data/DirectionsCardsData";
+import Icon from "../Icon/Icon";
+// import type { IDirectionsCard } from "~/data/DirectionsCardsData";
+
+interface DirectionsCardProps {
+	title: string;
+	description: string;
+	tags: {degree: string}[]
+	href: string;
+	icon: string;
+	accentColor: {accentColor: string}
+}
 
 const DirectionsCard = ({
-  Icon,
   title,
   description,
   tags,
-}: IDirectionsCard) => {
+	href,
+	icon,
+	accentColor
+}: DirectionsCardProps) => {
   return (
     <article className="directions-card">
-      <Icon />
+      <Icon icon={icon} fill={accentColor.accentColor} className="directions-card__icon"/>
 
       <div className="directions-card__body">
         <div className="directions-card__content">
@@ -21,15 +33,15 @@ const DirectionsCard = ({
         </div>
 
         <div className="directions-card__tags">
-          {tags.map((tag) => (
-            <p className="directions-card__tag body-s-regular" key={tag}>
-              {tag}
+          {tags.map(({degree}) => (
+            <p className="directions-card__tag body-s-regular" key={degree}>
+              {degree}
             </p>
           ))}
         </div>
       </div>
 
-      <LinkWithArrow className="directions-card__link" href="/">
+      <LinkWithArrow className="directions-card__link" href={href}>
         Подробнее
       </LinkWithArrow>
     </article>

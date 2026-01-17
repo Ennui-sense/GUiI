@@ -1,24 +1,17 @@
-import type { ProfessionsDirectionBlockItem } from "~/routes/directions.$direction";
+import Icon from "../Icon/Icon";
 
 interface ProfessionsListProps {
-  data: ProfessionsDirectionBlockItem[];
-  onClick: (id: number) => void;
+  filteredProfessions: { title: string; icon: string; id: number }[];
 }
 
-const ProfessionsList = ({ data, onClick }: ProfessionsListProps) => {
+const ProfessionsList = ({ filteredProfessions }: ProfessionsListProps) => {
   return (
     <ul className="professions__list">
-      {data.map(({ id, title, image }) => (
-        <li className="professions__item" key={id} onClick={() => onClick(id)}>
-          <button type="button" className="professions__item-button">
-            {/* <Icon /> */}
-            <img
-              src={`http://localhost:1337${image.url}`}
-              alt=""
-              className="professions__active-svg"
-            />
-            <h3 className="professions__item-title body-l-medium">{title}</h3>
-          </button>
+      {filteredProfessions.map(({ id, title, icon }) => (
+        <li className="professions__item" key={id}>
+          <Icon icon={icon} className="professions__item-icon"/>
+
+          <h3 className="professions__item-title body-l-medium">{title}</h3>
         </li>
       ))}
     </ul>

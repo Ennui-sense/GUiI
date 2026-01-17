@@ -4,6 +4,7 @@ import parse from 'html-react-parser';
 
 interface RenderSvgProps extends HTMLAttributes<SVGElement> {
   icon: string;
+	fill?: string;
 }
 
 export default function Icon({ icon, ...props }: RenderSvgProps) {

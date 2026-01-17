@@ -2,19 +2,33 @@
 
 .directions {
   &__list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-areas:
-      "direction-1 direction-1"
-      "direction-2 direction-3";
-		gap: rem(16);
+    display: flex;
+		flex-wrap: wrap;
+    gap: rem(16);
   }
 
   &__item {
-    @for $i from 1 through 3 {
-      &:nth-child(#{$i}) {
-        grid-area: direction-#{$i};
-      }
-    }
+    // @for $i from 1 through 3 {
+    //   &:nth-child(#{$i}) {
+    //     grid-area: direction-#{$i};
+    //   }
+    // }
+
+		min-width: rem(500);
+		flex-grow: 1;
   }
+
+  // &__grid {
+	// 	&-2 {
+  //     grid-template-areas:
+  //       "direction-1 direction-1"
+  //       "direction-2 direction-3";
+  //   }
+
+  //   &-3 {
+  //     grid-template-areas:
+  //       "direction-1 direction-1"
+  //       "direction-2 direction-3";
+  //   }
+  // }
 }

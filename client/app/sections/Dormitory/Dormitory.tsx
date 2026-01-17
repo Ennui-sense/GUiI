@@ -4,12 +4,17 @@ import Section from "~/layouts/Section/Section";
 
 import DormitoryImageSrc from "~/assets/img/dormitory.jpg";
 
-const Dormitory = () => {
+interface DormitoryProps {
+  title: string;
+  description: string;
+}
+
+const Dormitory = ({ title, description }: DormitoryProps) => {
   return (
     <Section
       sectionName="dormitory"
-      title="Общежитие"
-      description="Жизнь в нашем общежитии обеспечивает студентов комфортными условиями для погружения в учёбу и активного отдыха, объединяя их в тёплую атмосферу новых знакомств"
+      title={title}
+      description={description}
       buttonText="Узнать подробнее"
       buttonVariant="gray"
       isSectionInnerRowReverse

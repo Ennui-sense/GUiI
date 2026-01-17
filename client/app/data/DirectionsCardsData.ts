@@ -4,7 +4,7 @@ import GuopIcon from "~/assets/icons/scales.svg?react";
 
 export interface IDirectionsCard {
   id?: number;
-  Icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
+  Icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>> | undefined;
   title: string;
   description: string;
   shortDescription: string;
@@ -14,7 +14,7 @@ export interface IDirectionsCard {
 export const DirectionsCardsData: IDirectionsCard[] = [
   {
     id: 1,
-    Icon: MtidIcon,
+    Icon: undefined,
     title: "МТИД",
     description: "Мультимедийные технологии и информационный дизайн",
     shortDescription: "Будущим дизайнерам",
@@ -22,7 +22,7 @@ export const DirectionsCardsData: IDirectionsCard[] = [
   },
   {
     id: 2,
-    Icon: GmuIcon,
+    Icon: undefined,
     title: "ГМУ",
     description: "Государственное и муниципальное управление",
     shortDescription: "Будущим менеджерам",
@@ -30,7 +30,7 @@ export const DirectionsCardsData: IDirectionsCard[] = [
   },
   {
     id: 3,
-    Icon: GuopIcon,
+    Icon: undefined,
     title: "ГУОП",
     description: "Государственное управление и отраслевые политики",
     shortDescription: "Будущим политикам",

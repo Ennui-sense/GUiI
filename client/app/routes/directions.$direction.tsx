@@ -10,13 +10,15 @@ import Dormitory from "~/sections/Dormitory/Dormitory";
 import MilitaryDepartment from "~/sections/MilitaryDepartment/MilitaryDepartment";
 import News from "~/sections/News/News";
 
+import { useState, useEffect } from "react";
+
 import { useOnInView } from "react-intersection-observer";
 
 import { useNavigation } from "~/contexts/NavigationContext.jsx";
 
-export interface ProfessionsDirectionBlockItem {
+export interface ProfessionsDirectionItem {
   title: string;
-  image: { url: string };
+  icon: string;
   id: number;
 }
 
@@ -33,17 +35,20 @@ export interface DirectionData {
   availabilityDormitory: boolean;
   availabilityMilitaryDepartment: boolean;
   accentColor: { accentColor: string };
-  professions: ProfessionsDirectionBlockItem[];
+  professions: ProfessionsDirectionItem[];
   degrees: { degree: string }[];
 }
 
 export async function loader({ params }: Route.LoaderArgs) {
   const BASE_URL = import.meta.env.VITE_STRAPI_URL || "http://localhost:1337";
-  const path = "/api/directions";
-  const url = new URL(path, BASE_URL);
+  const pathDirections = "/api/directions";
+  const pathDirectionPage = "/api/direction-page";
+
+  const urlDirections = new URL(pathDirections, BASE_URL);
+  const urlDirectionPage = new URL(pathDirectionPage, BASE_URL);
 
   // Используем параметр из URL для фильтрации
-  url.search = qs.stringify(
+  urlDirections.search = qs.stringify(
     {
       filters: { title: params.direction },
       populate: {
@@ -58,15 +63,24 @@ export async function loader({ params }: Route.LoaderArgs) {
     { encodeValuesOnly: true }
   );
 
-  const response = await fetch(url.href);
-  const data = await response.json();
+  urlDirectionPage.search = qs.stringify({
+    populate: "*",
+  });
 
-  return { directionsData: data };
+  const responseDirections = await fetch(urlDirections.href);
+  const responseDirectionPage = await fetch(urlDirectionPage.href);
+
+  const dataDirections = await responseDirections.json();
+  const dataDirectionPage = await responseDirectionPage.json();
+
+  return {
+    directionsData: dataDirections,
+    directionPageData: dataDirectionPage,
+  };
 }
 
 export function meta({ loaderData }: Route.MetaArgs) {
   const currentDirection = loaderData?.directionsData?.data?.[0];
-  console.log(currentDirection);
 
   return [
     { title: `Кафедра ГУиИ | ${currentDirection.shortName}` },
@@ -84,6 +98,17 @@ export default function DirectionRoute({
 
   // Данные из loader
   const currentDirection: DirectionData = loaderData?.directionsData?.data?.[0];
+  const directionPageData = loaderData?.directionPageData.data.sections;
+
+  const professionsSectionData = directionPageData.find(
+    (item: any) => item.__component === "direction.professions"
+  );
+  const dormitorySectionData = directionPageData.find(
+    (item: any) => item.__component === "direction.dormitory"
+  );
+  const militaryDepartmentSectionData = directionPageData.find(
+    (item: any) => item.__component === "direction.military-department"
+  );
 
   if (!currentDirection) {
     return (
@@ -94,7 +119,7 @@ export default function DirectionRoute({
     );
   }
 
-  const inViewRef = useOnInView((inView, entry) => {
+  const inViewRef = useOnInView((inView) => {
     if (inView) {
       setNavigationState({ activeTab: false });
     } else {
@@ -107,8 +132,17 @@ export default function DirectionRoute({
       <div ref={inViewRef}>
         <HeroDirection data={currentDirection}></HeroDirection>
       </div>
-      <Professions data={currentDirection.professions} />
-      {currentDirection.availabilityDormitory && <Dormitory />}
+      <Professions
+        title={professionsSectionData.title}
+        description={professionsSectionData.description}
+        professions={currentDirection.professions}
+      />
+      {currentDirection.availabilityDormitory && (
+        <Dormitory
+          title={dormitorySectionData.title}
+          description={dormitorySectionData.description}
+        />
+      )}
       {currentDirection.availabilityMilitaryDepartment && (
         <MilitaryDepartment />
       )}

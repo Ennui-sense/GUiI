@@ -16,7 +16,7 @@ const HeaderModalCard = ({
   return (
     <article className="header-modal-card">
       <div className="header-modal-card__inner">
-        <Icon />
+        {Icon != undefined ? <Icon /> : ""}
 
         <div className="header-modal-card__info">
           <p className="header-modal-card__title body-l-medium">{title}</p>

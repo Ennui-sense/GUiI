@@ -7,26 +7,24 @@
     column-gap: rem(16);
   }
 
-  &__active {
+  &__accent {
     background-color: var(--color-dark);
     border-radius: var(--border-radius-large);
     color: var(--color-light);
-    padding: rem(72) rem(54) 0;
-    position: relative;
-		overflow: hidden;
+    padding: rem(92) rem(54) rem(24);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 
-    &-title {
-      text-align: center;
-    }
+		&-title {
+			max-width: rem(350);
+			text-align: center;
+		}
 
-    &-image {
-      @include square(rem(150));
+    &-icon {
+      @include square(rem(48));
 
-      position: absolute;
-      bottom: rem(-10);
-      rotate: -15deg;
-      left: 50%;
-      transform: translateX(-50%);
+			margin-top: auto;
 
       & * {
         fill: currentColor;
@@ -44,14 +42,11 @@
     padding: rem(20) rem(24);
     background-color: var(--color-gray-alt);
     border-radius: var(--border-radius-large);
+		display: flex;
+		column-gap: rem(12);
 
-    &-button {
-      @include button-reset;
-
-      width: 100%;
-      display: flex;
-			align-items: start;
-      column-gap: rem(12);
-    }
+		&-icon {
+			@include square(rem(24))
+		}
   }
 }
