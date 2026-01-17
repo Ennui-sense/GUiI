@@ -9,7 +9,7 @@ export interface IWorkersCard {
 export const WorkersCardsData: IWorkersCard[] = [
   {
     id: 1,
-    imageSrc: "/app/assets/img/workers/1.jpg",
+    imageSrc: "/img/workers/1.jpg",
     name: "Мохов Виктор Павлович",
     profession: "Декан Гуманитарного факультета",
     description:
@@ -17,14 +17,14 @@ export const WorkersCardsData: IWorkersCard[] = [
   },
   {
     id: 2,
-    imageSrc: "/app/assets/img/workers/2.jpg",
+    imageSrc: "/img/workers/2.jpg",
     name: "Паздникова Наталья Павловна",
     profession: "Заведующий кафедрой, доцент",
     description: "Поможет с вопросами по научной работе, курсовым и дипломам",
   },
   {
     id: 3,
-    imageSrc: "/app/assets/img/workers/3.jpg",
+    imageSrc: "/img/workers/3.jpg",
     name: "Михайлова Юлия Владимировна",
     profession: "Заместитель декана по учебной работе",
     description:
@@ -32,7 +32,7 @@ export const WorkersCardsData: IWorkersCard[] = [
   },
   {
     id: 4,
-    imageSrc: "/app/assets/img/workers/4.jpg",
+    imageSrc: "/img/workers/4.jpg",
     name: "Юрьева Ольга Владимировна",
     profession: "Заместитель декана по учебной работе",
     description:

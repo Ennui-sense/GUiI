@@ -6,6 +6,7 @@ import { resolve } from "path";
 
 export default defineConfig({
   plugins: [reactRouter(), tsconfigPaths(), svgr()],
+	base: "/",
   
   resolve: {
     alias: {

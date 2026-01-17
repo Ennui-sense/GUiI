@@ -1,7 +1,6 @@
 import "./Hero.scss";
 
 import { useState, useEffect } from "react";
-import HeroPattern from "~/assets/img/pattern.png";
 import PlanetPattern from "/img/planet.mp4";
 
 interface Hero {

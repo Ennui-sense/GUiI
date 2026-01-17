@@ -10,20 +10,12 @@ import {
 import { NavigationProvider } from "~/contexts/NavigationContext.jsx";
 
 import type { Route } from "./+types/root";
-import "./styles/main.scss";
+// import "/app/styles/main.scss";
+import stylesheet from "./styles/main.scss?url";
 
-// export const links: Route.LinksFunction = () => [
-//   { rel: "preconnect", href: "https://fonts.googleapis.com" },
-//   {
-//     rel: "preconnect",
-//     href: "https://fonts.gstatic.com",
-//     crossOrigin: "anonymous",
-//   },
-//   {
-//     rel: "stylesheet",
-//     href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
-//   },
-// ];
+export const links: Route.LinksFunction = () => [
+  { rel: "stylesheet", href: stylesheet },
+];
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -33,7 +25,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.png" sizes="48x48"></link>
         <Meta />
-        {/* <Links /> */}
+        <Links />
       </head>
       <body>
         {children}
