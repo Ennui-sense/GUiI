@@ -1,6 +1,6 @@
-import MtidIcon from "~/assets/icons/pen-nib.svg?react";
-import GmuIcon from "~/assets/icons/books.svg?react";
-import GuopIcon from "~/assets/icons/scales.svg?react";
+// import MtidIcon from "~/assets/icons/pen-nib.svg?react";
+// import GmuIcon from "~/assets/icons/books.svg?react";
+// import GuopIcon from "~/assets/icons/scales.svg?react";
 
 export interface IDirectionsCard {
   id?: number;
