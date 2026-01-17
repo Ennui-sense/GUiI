@@ -664,6 +664,10 @@ export interface ApiDirectionPageDirectionPage extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    direction: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::direction.direction'
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -700,7 +704,13 @@ export interface ApiDirectionProfessionDirectionProfession
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    image: Schema.Attribute.Media<'images' | 'files'>;
+    icon: Schema.Attribute.Text &
+      Schema.Attribute.CustomField<
+        'plugin::icons-field.icon',
+        {
+          selection: ['professions'];
+        }
+      >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -743,6 +753,13 @@ export interface ApiDirectionDirection extends Struct.CollectionTypeSchema {
     durationStudy: Schema.Attribute.String;
     educationForm: Schema.Attribute.String;
     fullName: Schema.Attribute.String;
+    icon: Schema.Attribute.Text &
+      Schema.Attribute.CustomField<
+        'plugin::icons-field.icon',
+        {
+          selection: ['directions'];
+        }
+      >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

@@ -14,13 +14,14 @@
     "title": {
       "type": "string"
     },
-    "image": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images",
-        "files"
-      ]
+    "icon": {
+      "type": "customField",
+      "customField": "plugin::icons-field.icon",
+      "options": {
+        "selection": [
+          "professions"
+        ]
+      }
     }
   }
 }

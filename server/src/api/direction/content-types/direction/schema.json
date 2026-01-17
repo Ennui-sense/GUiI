@@ -58,6 +58,15 @@
     },
     "shortDescription": {
       "type": "string"
+    },
+    "icon": {
+      "type": "customField",
+      "customField": "plugin::icons-field.icon",
+      "options": {
+        "selection": [
+          "directions"
+        ]
+      }
     }
   }
 }

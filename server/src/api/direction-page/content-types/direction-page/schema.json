@@ -19,6 +19,11 @@
         "direction.dormitory",
         "direction.military-department"
       ]
+    },
+    "direction": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::direction.direction"
     }
   }
 }
