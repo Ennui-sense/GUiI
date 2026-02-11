@@ -30,8 +30,7 @@ const Directions = () => {
 
   useEffect(() => {
     async function loadData() {
-      const BASE_URL =
-        import.meta.env.VITE_STRAPI_URL || "http://localhost:1337";
+      const BASE_URL =  import.meta.env.PROD ? import.meta.env.VITE_STRAPI_URL : "http://localhost:1337";
       const path = "/api/directions";
       const url = new URL(path, BASE_URL);
 

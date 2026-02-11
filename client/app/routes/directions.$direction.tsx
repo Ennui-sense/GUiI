@@ -40,7 +40,9 @@ export interface DirectionData {
 }
 
 export async function loader({ params }: Route.LoaderArgs) {
-  const BASE_URL = import.meta.env.VITE_STRAPI_URL || "http://localhost:1337";
+  const BASE_URL = import.meta.env.PROD
+    ? import.meta.env.VITE_STRAPI_URL
+    : "http://localhost:1337";
   const pathDirections = "/api/directions";
   const pathDirectionPage = "/api/direction-page";
 
@@ -60,7 +62,7 @@ export async function loader({ params }: Route.LoaderArgs) {
         },
       },
     },
-    { encodeValuesOnly: true }
+    { encodeValuesOnly: true },
   );
 
   urlDirectionPage.search = qs.stringify({
@@ -101,13 +103,13 @@ export default function DirectionRoute({
   const directionPageData = loaderData?.directionPageData.data.sections;
 
   const professionsSectionData = directionPageData.find(
-    (item: any) => item.__component === "direction.professions"
+    (item: any) => item.__component === "direction.professions",
   );
   const dormitorySectionData = directionPageData.find(
-    (item: any) => item.__component === "direction.dormitory"
+    (item: any) => item.__component === "direction.dormitory",
   );
   const militaryDepartmentSectionData = directionPageData.find(
-    (item: any) => item.__component === "direction.military-department"
+    (item: any) => item.__component === "direction.military-department",
   );
 
   if (!currentDirection) {

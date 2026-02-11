@@ -39,7 +39,7 @@ export default {
       const VERSION = "5.199";
 
       async function getWall(owner_id, label) {
-        const url = `${VK_API}/wall.get?access_token=${TOKEN}&owner_id=${owner_id}&count=10&v=${VERSION}&filter=owner`;
+        const url = `${VK_API}/wall.get?access_token=${TOKEN}&owner_id=${owner_id}&count=30&v=${VERSION}&filter=owner`;
 
         const response = await fetch(url);
         let data: any = await response.json();
